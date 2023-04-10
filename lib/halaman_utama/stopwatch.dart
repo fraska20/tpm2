@@ -44,6 +44,7 @@ class _StopwatchPageState extends State<StopwatchPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Stopwatch'),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(

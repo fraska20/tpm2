@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application1/bantuan/panduan.dart';
 import 'package:flutter_application1/login.dart';
 import '../auth_service.dart';
 
@@ -24,7 +25,10 @@ class _BantuanState extends State<Bantuan> {
               height: 50,
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (_) => PanduanPage()));
+                },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
                 ),
@@ -43,10 +47,8 @@ class _BantuanState extends State<Bantuan> {
               height: 50,
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
-                onPressed: () async {
-                  await AuthService.logout();
-                  Navigator.pushReplacement(
-                      context, MaterialPageRoute(builder: (_) => LoginPage()));
+                onPressed: () {
+                  exit(context);
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
@@ -64,4 +66,31 @@ class _BantuanState extends State<Bantuan> {
       ),
     );
   }
+}
+
+void exit(BuildContext context) {
+  AlertDialog alert = AlertDialog(
+    title: Text("Log Out"),
+    content: Container(
+      child: Text("Apakah Anda Yakin Ingin Log Out ?"),
+    ),
+    actions: [
+      TextButton(
+        child: Text('Yes'),
+        onPressed: () async {
+          await AuthService.logout();
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (_) => LoginPage()));
+        },
+      ),
+      TextButton(
+        child: Text('No'),
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+      ),
+    ],
+  );
+  showDialog(context: context, builder: (context) => alert);
+  return;
 }

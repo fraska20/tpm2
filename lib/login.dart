@@ -1,5 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'auth_service.dart';
 import 'home.dart';
 
 class LoginPage extends StatefulWidget {
@@ -19,6 +20,7 @@ class _LoginPageState extends State<LoginPage> {
   void _login() async {
     if (emailController.text == "admin@gmail.com" &&
         passwordController.text == "admin") {
+      await AuthService.setLoggedIn(true);
       Navigator.push(
         context,
         // LandingPage adalah halaman yang dituju
