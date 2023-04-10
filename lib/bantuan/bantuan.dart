@@ -26,8 +26,10 @@ class _BantuanState extends State<Bantuan> {
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (_) => PanduanPage()));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PanduanPage()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),

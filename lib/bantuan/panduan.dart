@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class PanduanPage extends StatelessWidget {
-  PanduanPage({Key? key}) : super(key: key);
+class PanduanPage extends StatefulWidget {
+  const PanduanPage({Key? key}) : super(key: key);
 
+  @override
+  State<PanduanPage> createState() => _PanduanPageState();
+}
+
+class _PanduanPageState extends State<PanduanPage> {
   List<String> panduan = [
     '1.Login',
     'Pertama-tama, buka aplikasi dan masukkan username dan password Anda pada halaman login.',

@@ -45,7 +45,6 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(),
       body: Container(
         padding: const EdgeInsets.all(20),
         child: Column(
