@@ -84,7 +84,7 @@ class _MenuPageState extends State<MenuPage> {
                   padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
                 ),
                 child: const Text(
-                  'Recommended',
+                  'Rekomendasi Makanan',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),

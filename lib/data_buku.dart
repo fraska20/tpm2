@@ -1,146 +1,98 @@
 class DataBuku {
-  String author;
-  String country;
+  String foodName;
+  String region;
   String imageLink;
-  String language;
   String link;
-  int pages;
-  String title;
-  int year;
   bool isFavorite;
 
   DataBuku({
-    required this.author,
-    required this.country,
+    required this.foodName,
+    required this.region,
     required this.imageLink,
-    required this.language,
     required this.link,
-    required this.pages,
-    required this.title,
-    required this.year,
     required this.isFavorite,
   });
 }
 
 var listBuku = [
   DataBuku(
-    author: "Chinua Achebe",
-    country: "Nigeria",
+    foodName: "Mie Aceh",
+    region: "Nanggroe Aceh Darussalam",
     imageLink:
-        "https://raw.githubusercontent.com/benoitvallon/100-best-books/master/static/images/things-fall-apart.jpg",
-    language: "English",
-    link: "https://en.wikipedia.org/wiki/Things_Fall_Apart",
-    pages: 209,
-    title: "Things Fall Apart",
-    year: 1958,
+        "https://upload.wikimedia.org/wikipedia/commons/e/e2/Aceh_fried_noodles.JPG",
+    link: "https://id.wikipedia.org/wiki/Mi_aceh",
     isFavorite: false,
   ),
   DataBuku(
-    author: "Samuel Beckett",
-    country: "Republic of Ireland",
+    foodName: "Rendang",
+    region: "Sumatera Barat",
     imageLink:
-        "https://raw.githubusercontent.com/benoitvallon/100-best-books/master/static/images/molloy-malone-dies-the-unnamable.jpg",
-    language: "French, English",
-    link: "https://en.wikipedia.org/wiki/Molloy_(novel)",
-    pages: 256,
-    title: "Molloy, Malone Dies, The Unnamable, the trilogy",
-    year: 1952,
-    isFavorite: true,
-  ),
-  DataBuku(
-    author: "Giovanni Boccaccio",
-    country: "Italy",
-    imageLink:
-        "https://raw.githubusercontent.com/benoitvallon/100-best-books/master/static/images/the-decameron.jpg",
-    language: "Italian",
-    link: "https://en.wikipedia.org/wiki/The_Decameron",
-    pages: 1024,
-    title: "The Decameron",
-    year: 1351,
+        "https://upload.wikimedia.org/wikipedia/commons/7/70/Rendang_daging_sapi_asli_Padang.JPG",
+    link: "https://id.wikipedia.org/wiki/Rendang",
     isFavorite: false,
   ),
   DataBuku(
-    author: "Jorge Luis Borges",
-    country: "Argentina",
+    foodName: "Pempek",
+    region: "Sumatera Selatan",
     imageLink:
-        "https://raw.githubusercontent.com/benoitvallon/100-best-books/master/static/images/ficciones.jpg",
-    language: "Spanish",
-    link: "https://en.wikipedia.org/wiki/Ficciones",
-    pages: 224,
-    title: "Ficciones",
-    year: 1965,
+        "https://upload.wikimedia.org/wikipedia/commons/c/ca/Pempek_Kuah_Cuko.jpg",
+    link: "https://id.wikipedia.org/wiki/Pempek",
     isFavorite: false,
   ),
   DataBuku(
-    author: "Emily Bront",
-    country: "United Kingdom",
+    foodName: "Kerak Telor",
+    region: "Jakarta",
     imageLink:
-        "https://raw.githubusercontent.com/benoitvallon/100-best-books/master/static/images/wuthering-heights.jpg",
-    language: "English",
-    link: "https://en.wikipedia.org/wiki/Wuthering_Heights",
-    pages: 342,
-    title: "Wuthering Heights",
-    year: 1847,
+        "https://upload.wikimedia.org/wikipedia/commons/f/f9/Kerak_Telor_Betawi_Vendor.jpg",
+    link: "https://id.wikipedia.org/wiki/Kerak_telor",
     isFavorite: false,
   ),
   DataBuku(
-    author: "Albert Camus",
-    country: "Algeria, French Empire",
+    foodName: "Gudeg",
+    region: "Yogyakarta",
     imageLink:
-        "https://raw.githubusercontent.com/benoitvallon/100-best-books/master/static/images/l-etranger.jpg",
-    language: "French",
-    link: "https://en.wikipedia.org/wiki/The_Stranger_(novel)",
-    pages: 185,
-    title: "The Stranger",
-    year: 1942,
+        "https://upload.wikimedia.org/wikipedia/commons/3/31/Nasi_Gudeg.jpg",
+    link: "https://id.wikipedia.org/wiki/Gudeg",
     isFavorite: false,
   ),
   DataBuku(
-    author: "Joseph Conrad",
-    country: "United Kingdom",
+    foodName: "Lumpia",
+    region: "Jawa Tengah",
     imageLink:
-        "https://raw.githubusercontent.com/benoitvallon/100-best-books/master/static/images/nostromo.jpg",
-    language: "English",
-    link: "https://en.wikipedia.org/wiki/Nostromo",
-    pages: 320,
-    title: "Nostromo",
-    year: 1904,
+        "https://upload.wikimedia.org/wikipedia/commons/b/b6/Lumpia.JPG",
+    link: "https://id.wikipedia.org/wiki/Lumpia",
     isFavorite: false,
   ),
   DataBuku(
-    author: "Louis-Ferdinand Céline",
-    country: "France",
+    foodName: "Rujak Cingur",
+    region: "Jawa Timur",
     imageLink:
-        "https://raw.githubusercontent.com/benoitvallon/100-best-books/master/static/images/voyage-au-bout-de-la-nuit.jpg",
-    language: "French",
-    link: "https://en.wikipedia.org/wiki/Journey_to_the_End_of_the_Night",
-    pages: 505,
-    title: "Journey to the End of the Night",
-    year: 1932,
+        "https://upload.wikimedia.org/wikipedia/commons/6/6f/Rujakcingur.jpg",
+    link: "https://id.wikipedia.org/wiki/Rujak_cingur",
     isFavorite: false,
   ),
   DataBuku(
-    author: "Miguel de Cervantes",
-    country: "Spain",
+    foodName: "Ayam Betutu",
+    region: "Bali",
     imageLink:
-        "https://raw.githubusercontent.com/benoitvallon/100-best-books/master/static/images/don-quijote-de-la-mancha.jpg",
-    language: "Spanish",
-    link: "https://en.wikipedia.org/wiki/Don_Quixote",
-    pages: 1056,
-    title: "Don Quijote De La Mancha",
-    year: 1610,
+        "https://upload.wikimedia.org/wikipedia/commons/f/f4/Ayam_Betutu.jpg",
+    link: "https://id.wikipedia.org/wiki/Ayam_betutu",
     isFavorite: false,
   ),
   DataBuku(
-    author: "Geoffrey Chaucer",
-    country: "England",
+    foodName: "Soto Banjar",
+    region: "Kalimantan Selatan",
     imageLink:
-        "https://raw.githubusercontent.com/benoitvallon/100-best-books/master/static/images/the-canterbury-tales.jpg",
-    language: "English",
-    link: "https://en.wikipedia.org/wiki/The_Canterbury_Tales",
-    pages: 544,
-    title: "The Canterbury Tales",
-    year: 1450,
+        "https://upload.wikimedia.org/wikipedia/commons/e/e4/Soto_Banjar_ketupat.jpg",
+    link: "https://id.wikipedia.org/wiki/Soto_Banjar",
+    isFavorite: false,
+  ),
+  DataBuku(
+    foodName: "Papeda",
+    region: "Papua Timur",
+    imageLink:
+        "https://upload.wikimedia.org/wikipedia/commons/0/01/Papeda%2C_Kuah_Kuning%2C_Ikan_Tude_Bakar_2.jpg",
+    link: "https://id.wikipedia.org/wiki/Papeda",
     isFavorite: false,
   ),
 ];

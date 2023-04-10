@@ -31,10 +31,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Tugas 4 TPM",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        title: Center(
+          child: Text(
+            "MENU",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
         ),
+
         backgroundColor: Colors.black,
         automaticallyImplyLeading: false,
       ),
