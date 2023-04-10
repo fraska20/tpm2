@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'data_buku.dart';
+import 'data_food.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class RecommendedPage extends StatefulWidget {
   const RecommendedPage({Key? key}) : super(key: key);
@@ -13,21 +14,25 @@ class _RecommendedPageState extends State<RecommendedPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text("Rekomendasi"),
-        ),
+        title: Text("Rekomendasi Makanan Indonesia"),
       ),
       body: ListView.builder(
           itemCount: listBuku.length,
           itemBuilder: (context, index) {
             final DataBuku data = listBuku[index];
+            final Uri _url = Uri.parse(data.link);
+
+            void _launchUrl() async {
+              if (!await launchUrl(_url)) throw 'Could not launch $_url';
+            }
+
             return Center(
               child: Card(
                 child: Row(
                   children: [
                     Container(
                       margin: EdgeInsets.only(top: 15.0, right: 10.0),
-                      width: MediaQuery.of(context).size.width / 5,
+                      width: MediaQuery.of(context).size.width / 3,
                       height: MediaQuery.of(context).size.height / 3,
                       child: Image.network(
                         data.imageLink,
@@ -43,41 +48,61 @@ class _RecommendedPageState extends State<RecommendedPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            data.title,
+                            data.foodName,
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 30),
+                                fontWeight: FontWeight.bold, fontSize: 25),
+                            overflow: TextOverflow.fade,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            data.region,
+                            style: TextStyle(
+                                fontSize: 16, fontStyle: FontStyle.italic),
                             overflow: TextOverflow.fade,
                           ),
                           SizedBox(
                             height: 20,
                           ),
-                          Row(
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    if(listBuku[index].isFavorite == false){
+                                    if (listBuku[index].isFavorite == false) {
                                       listBuku[index].isFavorite = true;
-                                      ScaffoldMessenger.of(context).showSnackBar(
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
                                         const SnackBar(
-                                          content:  Text("Tambah Ke Favorit"),
+                                          content: Text("Add Success"),
                                           duration: Duration(seconds: 2),
                                         ),
                                       );
-                                    }
-                                    else {
+                                    } else {
                                       listBuku[index].isFavorite = false;
-                                      ScaffoldMessenger.of(context).showSnackBar(
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
                                         const SnackBar(
-                                          content:  Text("Hapus dari Favorit"),
+                                          content: Text("Delete Success"),
                                           duration: Duration(seconds: 2),
                                         ),
                                       );
                                     }
-                                  }
-                                  );
+                                  });
                                 },
-                                child: Text(data.isFavorite ? 'Hapus dari Favorite' : 'Tambahkan ke Favorite'),
+                                child: Text(data.isFavorite
+                                    ? 'Delete From Favorite'
+                                    : 'Add To Favorite'),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              RaisedButton(
+                                onPressed: _launchUrl,
+                                child: Text('Link Detail'),
                               ),
                             ],
                           ),
@@ -88,8 +113,7 @@ class _RecommendedPageState extends State<RecommendedPage> {
                 ),
               ),
             );
-          }
-      ),
+          }),
     );
   }
 }

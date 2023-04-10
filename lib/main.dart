@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'form.dart';
+import 'package:flutter_application1/home.dart';
+import 'login.dart';
+import 'auth_service.dart';
 
 void main() => runApp(const MyApp());
 
@@ -31,8 +33,16 @@ class MyApp extends StatelessWidget {
         colorScheme: defaultColorScheme,
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(title: "Tugas4",),
+      home: FutureBuilder<bool>(
+        future: AuthService.isLoggedIn(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData && snapshot.data == true) {
+            return HomePage();
+          } else {
+            return LoginPage();
+          }
+        },
+      ),
     );
   }
 }
-

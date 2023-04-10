@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'home.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key, required this.title}) : super(key: key);
-  final String title;
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -16,6 +15,29 @@ class _LoginPageState extends State<LoginPage> {
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  void _login() async {
+    if (emailController.text == "admin@gmail.com" &&
+        passwordController.text == "admin") {
+      Navigator.push(
+        context,
+        // LandingPage adalah halaman yang dituju
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
+    } else {
+      showDialog(
+          context: context,
+          builder: (_) => AlertDialog(
+                title: Text('Error'),
+                content: Text('Username or password is incorrect.'),
+                actions: [
+                  TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: Text('OK'))
+                ],
+              ));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                     controller: emailController,
                     decoration: InputDecoration(
                       hintText: 'Enter your email',
-                      prefixIcon  : const Icon(Icons.email),
+                      prefixIcon: const Icon(Icons.email),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -95,21 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        if(emailController.text == "admin@gmail.com" && passwordController.text == "admin"){
-                          Navigator.push(
-                            context,
-                            // LandingPage adalah halaman yang dituju
-                            MaterialPageRoute(
-                                builder: (context) => HomePage()
-                            ),
-                          );
-                        }else{
-                          const snackBar = SnackBar(
-                            duration: Duration(seconds: 5),
-                            content: Text("Email atau password salah!!!")
-                          );
-                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        }
+                        _login();
                       }
                     },
                     style: ElevatedButton.styleFrom(
@@ -121,20 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text('Not registered yet?'),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text('Create an account'),
-                      ),
-                    ],
-                  ),
+                  )
                 ],
               ),
             )

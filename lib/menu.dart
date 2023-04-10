@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'data_anggota.dart';
-import 'stopwatch.dart';
-import 'recommend.dart';
-import 'favorite.dart';
+import 'halaman_utama/data_anggota.dart';
+import 'halaman_utama/stopwatch.dart';
+import 'halaman_utama/recommend.dart';
+import 'halaman_utama/favorite.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({Key? key}) : super(key: key);

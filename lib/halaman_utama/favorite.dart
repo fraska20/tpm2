@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'data_buku.dart';
-
+import 'data_food.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FavoritePage extends StatelessWidget {
   const FavoritePage({Key? key}) : super(key: key);
@@ -8,14 +8,24 @@ class FavoritePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Daftar Favorites")
-      ),
+      appBar: AppBar(title: Text("Daftar Favorites")),
       body: ListView.builder(
-          itemCount: listBuku.where((element) => element.isFavorite == true).toList().length,
+          itemCount: listBuku
+              .where((element) => element.isFavorite == true)
+              .toList()
+              .length,
           itemBuilder: (context, index) {
-            List buku = listBuku.where((element) => element.isFavorite == true).toList();
+            List buku = listBuku
+                .where((element) => element.isFavorite == true)
+                .toList();
             DataBuku data = buku[index];
+
+            final Uri _url = Uri.parse(data.link);
+
+            void _launchUrl() async {
+              if (!await launchUrl(_url)) throw 'Could not launch $_url';
+            }
+
             return Center(
               child: Card(
                 child: Row(
@@ -38,13 +48,32 @@ class FavoritePage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            data.title,
+                            data.foodName,
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 30),
+                                fontWeight: FontWeight.bold, fontSize: 25),
+                            overflow: TextOverflow.fade,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            data.region,
+                            style: TextStyle(
+                                fontSize: 16, fontStyle: FontStyle.italic),
                             overflow: TextOverflow.fade,
                           ),
                           SizedBox(
                             height: 20,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              RaisedButton(
+                                onPressed: _launchUrl,
+                                child: Text('Link Detail'),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -53,8 +82,7 @@ class FavoritePage extends StatelessWidget {
                 ),
               ),
             );
-          }
-      ),
+          }),
     );
   }
 }

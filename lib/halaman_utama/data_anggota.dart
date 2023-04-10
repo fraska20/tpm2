@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'form.dart';
+import '../login.dart';
 
 class DataAnggota extends StatefulWidget {
   const DataAnggota({Key? key}) : super(key: key);
@@ -13,7 +13,10 @@ class _DataAnggota extends State<DataAnggota> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Data Anggota"),
+        centerTitle: true,
+      ),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Container(
         padding: const EdgeInsets.all(20),
@@ -153,34 +156,6 @@ class _DataAnggota extends State<DataAnggota> {
                       ],
                     ),
                   ],
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              height: 50,
-              width: MediaQuery.of(context).size.width,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    // LandingPage adalah halaman yang dituju
-                    MaterialPageRoute(
-                        builder: (context) => const LoginPage(
-                              title: "Tugas2",
-                            )),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
-                ),
-                child: const Text(
-                  'Get started',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
                 ),
               ),
             ),

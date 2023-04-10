@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'menu.dart';
-import 'bantuan.dart';
+import 'bantuan/bantuan.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -30,14 +30,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Tugas 4 TPM",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: Colors.black,
-        automaticallyImplyLeading: false,
-      ),
       body: bodyFunction(),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
