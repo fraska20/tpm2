@@ -17,8 +17,6 @@ class _MenuPageState extends State<MenuPage> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        title: Text("Menu"),
-        centerTitle: true,
         automaticallyImplyLeading: false,
       ),
       body: Container(
