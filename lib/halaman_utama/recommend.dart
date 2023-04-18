@@ -17,9 +17,9 @@ class _RecommendedPageState extends State<RecommendedPage> {
         title: Text("Rekomendasi Makanan Indonesia"),
       ),
       body: ListView.builder(
-          itemCount: listBuku.length,
+          itemCount: listFood.length,
           itemBuilder: (context, index) {
-            final DataBuku data = listBuku[index];
+            final DataFood data = listFood[index];
             final Uri _url = Uri.parse(data.link);
 
             void _launchUrl() async {
@@ -72,8 +72,8 @@ class _RecommendedPageState extends State<RecommendedPage> {
                               ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    if (listBuku[index].isFavorite == false) {
-                                      listBuku[index].isFavorite = true;
+                                    if (listFood[index].isFavorite == false) {
+                                      listFood[index].isFavorite = true;
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
                                         const SnackBar(
@@ -82,7 +82,7 @@ class _RecommendedPageState extends State<RecommendedPage> {
                                         ),
                                       );
                                     } else {
-                                      listBuku[index].isFavorite = false;
+                                      listFood[index].isFavorite = false;
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
                                         const SnackBar(

@@ -10,15 +10,15 @@ class FavoritePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Daftar Favorites")),
       body: ListView.builder(
-          itemCount: listBuku
+          itemCount: listFood
               .where((element) => element.isFavorite == true)
               .toList()
               .length,
           itemBuilder: (context, index) {
-            List buku = listBuku
+            List buku = listFood
                 .where((element) => element.isFavorite == true)
                 .toList();
-            DataBuku data = buku[index];
+            DataFood data = buku[index];
 
             final Uri _url = Uri.parse(data.link);
 

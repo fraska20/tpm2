@@ -1,11 +1,11 @@
-class DataBuku {
+class DataFood {
   String foodName;
   String region;
   String imageLink;
   String link;
   bool isFavorite;
 
-  DataBuku({
+  DataFood({
     required this.foodName,
     required this.region,
     required this.imageLink,
@@ -14,8 +14,8 @@ class DataBuku {
   });
 }
 
-var listBuku = [
-  DataBuku(
+var listFood = [
+  DataFood(
     foodName: "Mie Aceh",
     region: "Nanggroe Aceh Darussalam",
     imageLink:
@@ -23,7 +23,7 @@ var listBuku = [
     link: "https://id.wikipedia.org/wiki/Mi_aceh",
     isFavorite: false,
   ),
-  DataBuku(
+  DataFood(
     foodName: "Rendang",
     region: "Sumatera Barat",
     imageLink:
@@ -31,7 +31,7 @@ var listBuku = [
     link: "https://id.wikipedia.org/wiki/Rendang",
     isFavorite: false,
   ),
-  DataBuku(
+  DataFood(
     foodName: "Pempek",
     region: "Sumatera Selatan",
     imageLink:
@@ -39,7 +39,7 @@ var listBuku = [
     link: "https://id.wikipedia.org/wiki/Pempek",
     isFavorite: false,
   ),
-  DataBuku(
+  DataFood(
     foodName: "Kerak Telor",
     region: "Jakarta",
     imageLink:
@@ -47,7 +47,7 @@ var listBuku = [
     link: "https://id.wikipedia.org/wiki/Kerak_telor",
     isFavorite: false,
   ),
-  DataBuku(
+  DataFood(
     foodName: "Gudeg",
     region: "Yogyakarta",
     imageLink:
@@ -55,14 +55,14 @@ var listBuku = [
     link: "https://id.wikipedia.org/wiki/Gudeg",
     isFavorite: false,
   ),
-  DataBuku(
+  DataFood(
     foodName: "Lumpia",
     region: "Jawa Tengah",
     imageLink: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Lumpia.JPG",
     link: "https://id.wikipedia.org/wiki/Lumpia",
     isFavorite: false,
   ),
-  DataBuku(
+  DataFood(
     foodName: "Rujak Cingur",
     region: "Jawa Timur",
     imageLink:
@@ -70,7 +70,7 @@ var listBuku = [
     link: "https://id.wikipedia.org/wiki/Rujak_cingur",
     isFavorite: false,
   ),
-  DataBuku(
+  DataFood(
     foodName: "Ayam Betutu",
     region: "Bali",
     imageLink:
@@ -78,7 +78,7 @@ var listBuku = [
     link: "https://id.wikipedia.org/wiki/Ayam_betutu",
     isFavorite: false,
   ),
-  DataBuku(
+  DataFood(
     foodName: "Soto Banjar",
     region: "Kalimantan Selatan",
     imageLink:
@@ -86,7 +86,7 @@ var listBuku = [
     link: "https://id.wikipedia.org/wiki/Soto_Banjar",
     isFavorite: false,
   ),
-  DataBuku(
+  DataFood(
     foodName: "Papeda",
     region: "Papua Timur",
     imageLink:
